@@ -37,3 +37,5 @@ jobs:
         run: |
           echo "Environment Variable 1: $REACT_APP_API_URL"
           echo "Environment Variable 2: $REACT_APP_API_KEY"
+          echo "REACT_PASS_THROUGH_GITHUB_ENV_ONE: $REACT_PASS_THROUGH_GITHUB_ENV_ONE"
+          echo "REACT_PASS_THROUGH_GITHUB_ENV_TWO: $REACT_PASS_THROUGH_GITHUB_ENV_TWO"
