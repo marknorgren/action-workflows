@@ -16,17 +16,22 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: ${{ inputs.env_file }}
+
       - name: List the files in the directory
         run: ls -l
+
       - name: Show tree structure
         run: tree -a
+
       - name: Show the content of the environment file
         run: cat .env
+
       - name: Load environment variables from .env file
         run: |
-          set -o allexport
-          source .env
-          set -o allexport
+          # Read each line in the .env file and export it to GITHUB_ENV
+          while IFS= read -r line; do
+            echo "$line" >> $GITHUB_ENV
+          done < .env
 
       - name: Use environment variables
         run: |
